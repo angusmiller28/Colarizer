@@ -1,7 +1,10 @@
 package com.teamtreehouse.colorizer;
 
+import android.graphics.Color;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -33,7 +36,15 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuItem menuItem = menu.add("Next Image");
+        getMenuInflater().inflate(R.menu.options_menu, menu);
+
+        Drawable nextImageDrawable = menu.findItem(R.id.nextImage).getIcon();
+        nextImageDrawable.setColorFilter(Color.WHITE,PorterDuff.Mode.SRC_ATOP);
+
+        menu.findItem(R.id.red).setChecked(red);
+        menu.findItem(R.id.green).setChecked(green);
+        menu.findItem(R.id.blue).setChecked(blue);
+
         return true;
     }
 
