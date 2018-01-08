@@ -48,6 +48,19 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.nextImage:
+                imageIndex++;
+                if (imageIndex >= imageResIds.length)
+                    imageIndex = 0;
+                loadImage();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void updateSaturation() {
         ColorMatrix colorMatrix = new ColorMatrix();
         if (color) {
