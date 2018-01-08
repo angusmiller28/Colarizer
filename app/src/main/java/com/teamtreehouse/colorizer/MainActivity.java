@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         menu.findItem(R.id.green).setChecked(green);
         menu.findItem(R.id.blue).setChecked(blue);
 
+        menu.setGroupVisible(R.id.colorGroup, color);
+
         return true;
     }
 
