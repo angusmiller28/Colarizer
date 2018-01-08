@@ -57,6 +57,11 @@ public class MainActivity extends AppCompatActivity {
                     imageIndex = 0;
                 loadImage();
                 break;
+            case R.id.color:
+                color = !color;
+                updateSaturation();
+                invalidateOptionsMenu();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
